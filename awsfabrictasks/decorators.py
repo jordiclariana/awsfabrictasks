@@ -1,6 +1,7 @@
 from functools import wraps
 from fabric.decorators import _wrap_as_new
 from .ec2.api import Ec2InstanceWrapper
+from awsfabrictasks.conf import awsfab_settings
 
 
 try:
@@ -41,5 +42,5 @@ def ec2instance(nametag=None, instanceid=None, tags=None, region=None):
     if not (instanceid or nametag or tags):
         raise ValueError('nametag, instanceid, or tags must be supplied.')
 
-    return _list_annotating_decorator('hosts', [instancewrapper['public_dns_name']
+    return _list_annotating_decorator('hosts', [instancewrapper[awsfab_settings.DEFAULT_CONNECT_METHOD]
         for instancewrapper in instancewrappers])

@@ -9,6 +9,9 @@ AUTH = {}
 #: The default AWS region to use with the commands where REGION is supported.
 DEFAULT_REGION = 'eu-west-1'
 
+#: Default connection method, public_dns_name, private_ip_address, etc.
+DEFAULT_CONNECT_METHOD = 'public_dns_name'
+
 #: Default ssh user if the ``awsfab-ssh-user`` tag is not set
 EC2_INSTANCE_DEFAULT_SSHUSER = 'root'
 
